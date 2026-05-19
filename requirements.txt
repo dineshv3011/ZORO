@@ -1,0 +1,15 @@
+groq
+openai-whisper
+edge-tts
+SpeechRecognition
+pyaudio
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+python-dotenv
+elevenlabs
+hindsight-client
+cascadeflow
+flask
+flask-cors

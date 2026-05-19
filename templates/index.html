@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZORO — AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+
+  <!-- Ambient background -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow" id="bgGlow"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="layout">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div class="brand">
+        <span class="brand-icon">🗡️</span>
+        <span class="brand-name">ZORO</span>
+      </div>
+
+      <div class="status-card" id="statusCard">
+        <div class="status-indicator">
+          <div class="status-dot" id="statusDot"></div>
+          <span class="status-label" id="statusLabel">Sleeping</span>
+        </div>
+        <p class="status-hint" id="statusHint">Say "Wake up" to activate</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Wake Words</div>
+        <div class="info-item">🎤 "Wake up"</div>
+        <div class="info-item">🎤 "Hey ZORO"</div>
+        <div class="info-item">🎤 "Hi ZORO"</div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Commands</div>
+        <div class="info-item">📧 Send / Read emails</div>
+        <div class="info-item">✅ Add tasks</div>
+        <div class="info-item">🌅 Morning briefing</div>
+        <div class="info-item">💾 Remember things</div>
+        <div class="info-item">😴 "Sleep ZORO"</div>
+      </div>
+
+      <div class="model-badge" id="modelBadge">
+        <span class="model-dot"></span>
+        <span id="modelName">Groq — Loading...</span>
+      </div>
+    </div>
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+      <!-- Orb -->
+      <div class="orb-wrapper">
+        <div class="orb-rings">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+        </div>
+
+        <div class="orb" id="orb">
+          <div class="orb-shine"></div>
+          <div class="orb-content">
+            <!-- Mic icon (sleep/awake) -->
+            <svg class="orb-icon" id="orbIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+            <!-- Voice bars (speaking) -->
+            <div class="voice-bars" id="voiceBars">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <!-- Thinking dots -->
+            <div class="think-dots" id="thinkDots">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Title -->
+      <h1 class="zoro-title" id="zoroTitle">Z O R O</h1>
+      <p class="zoro-sub" id="zoroSub">Say "Wake up" to activate</p>
+
+      <!-- Live transcript -->
+      <div class="transcript-box" id="transcriptBox">
+        <span id="transcriptText">...</span>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL — Conversation -->
+    <div class="right-panel">
+      <!-- Fixed header -->
+      <div class="conv-header">
+        <span>Conversation</span>
+        <button class="clear-btn" onclick="clearChat()">Clear</button>
+      </div>
+      <!-- Scrollable messages only -->
+      <div class="conv-body" id="convBody">
+        <div class="msg zoro-msg">
+          <span class="msg-label">ZORO</span>
+          Hello! Say "Wake up" or type below to start.
+        </div>
+      </div>
+      <!-- Fixed text input at bottom -->
+      <div class="text-input-area">
+        <input
+          type="text"
+          id="textInput"
+          class="text-input"
+          placeholder="Type a message..."
+          autocomplete="off"
+        />
+        <button class="send-btn" id="sendBtn" onclick="sendText()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/static/js/zoro.js"></script>
+</body>
+</html>

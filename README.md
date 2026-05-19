@@ -62,4 +62,3 @@ python main.py
 
 ---
 
-Built for Hindsight x CascadeFlow Hackathon 🏆
